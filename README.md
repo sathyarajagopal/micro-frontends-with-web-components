@@ -41,3 +41,21 @@ npm i
 npm start
 ```
 [http://localhost:5000](http://localhost:5000)
+
+## Nginx
+- Download and extract NGINX binaries folder into C:\Users\SPR
+- cd C:\Users\SPR\nginx-1.19.0
+- Create "sites-enabled" and "sites-available" folders inside "C:\Users\SPR\nginx-1.19.0\conf" folder.
+- Copy all the 3 site conf files into "conf/sites-available" folder.
+- Run the below commands to symlink all the 3 virtual hosts config files.
+```
+mklink /h "conf/sites-enabled/micro-fe-wrapper.conf" "conf/sites-available/micro-fe-wrapper.conf"
+mklink /h "conf/sites-enabled/micro-fe-ng.conf" "conf/sites-available/micro-fe-ng.conf"
+mklink /h "conf/sites-enabled/micro-fe-react.conf" "conf/sites-available/micro-fe-react.conf"
+```
+- Run the below command to symlink virtual host directories to actual dist path
+```
+mklink /j html\micro-fe-wrapper C:\Data\Github\micro-frontends-with-web-components\micro-fe-wrapper
+mklink /j html\micro-fe-ng C:\Data\Github\micro-frontends-with-web-components\micro-fe-ng\dist
+mklink /j html\micro-fe-react C:\Data\Github\micro-frontends-with-web-components\micro-fe-react\dist
+```
