@@ -60,7 +60,7 @@
           <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">What is your name?</h4>
             <div class="form-group">
-              <input type="text" onClick="this.setSelectionRange(0, this.value.length)" class="form-control" id="yourName" aria-describedby="yourName" placeholder="Your name" value="Chris" />
+              <input type="text" onClick="this.setSelectionRange(0, this.value.length)" class="form-control" id="yourName" aria-describedby="yourName" placeholder="Your name" value="SPR" />
               <small id="emailHelp" class="form-text text-muted">Enter your name above then click the button below to tell the components.</small>
             </div>
             <button type="submit" class="btn btn-primary" onclick="tellComponents()">Tell the components</button>
@@ -91,51 +91,12 @@
     </div>
     <div class="row">
       <div class="repo">
-        <a href="https://github.com/chriskitson/micro-frontends-with-web-components" target="_blank">View this code repository on github</a>.
+        <a href="https://github.com/sathyarajagopal/micro-frontends-with-web-components" target="_blank">View this code repository on github</a>.
       </div>
     </div>
   </div>
 
-  <script>
-    function tellComponents() {
-      const name = document.getElementById('yourName').value;
-
-      const reactEl = document.createElement('react-el');
-      reactEl.setAttribute('name', name);
-      reactEl.setAttribute('onHelloEvt', 'onHelloEvt');
-      reactEl.addEventListener('onHelloEvt', (e) => helloEvent('React'));
-
-      const reactElContainer =  document.getElementById('react-container')
-      if (reactElContainer.children.length > 0) {
-        reactElContainer.removeChild(reactElContainer.children[0]);
-      }
-      reactElContainer.appendChild(reactEl);
-
-      const ngEl = document.createElement('ng-el');
-      ngEl.setAttribute('name', name);
-      ngEl.addEventListener('helloEvt', (e) => helloEvent('Angular'));
-
-
-      const ngElContainer =  document.getElementById('ng-container')
-      if (ngElContainer.children.length > 0) {
-        ngElContainer.removeChild(ngElContainer.children[0]);
-      }
-      ngElContainer.appendChild(ngEl);
-
-      logMessage('You', `my name is ${name}`)
-
-    }
-
-    function helloEvent(who) {
-      logMessage(who, 'hello');
-    }
-
-    function logMessage(source, msg) {
-      const msgContainer = document.getElementById('messages');
-      msgContainer.innerHTML += `<p><strong>${source}</strong> said ${msg}`;
-    }
-  </script>
-
+  <script src="http://localhost:5000/container.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
   <script src="http://localhost:5001/main.js"></script>

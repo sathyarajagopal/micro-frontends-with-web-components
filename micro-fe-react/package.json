@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@angular/router": "^9.1.10",
     "react-scripts": "3.0.0"
   },
   "scripts": {

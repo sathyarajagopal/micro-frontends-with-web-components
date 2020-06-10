@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  // selector: 'app-customelement',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None // <- this allows CSS to bleed to this component from parent app
 })
-export class AppComponent {
-  title = 'micro-fe-ng';
+export class AppComponent implements OnInit {
+
+  @Input() name: string;
+  @Output() helloEvt: EventEmitter<string> = new EventEmitter();
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }
